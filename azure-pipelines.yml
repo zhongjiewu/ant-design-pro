@@ -13,7 +13,6 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
-  
 - task: Npm@1
   displayName: 'npm install'
   inputs:
@@ -23,13 +22,13 @@ steps:
   displayName: 'lint'
   inputs:
     command: custom
-     customCommand: 'run lint'
+    customCommand: 'run lint'
 
 - task: Npm@1
   displayName: 'build'
   inputs:
     command: custom
-     customCommand: 'run build'
+    customCommand: 'run build'
 
 - task: Npm@1
   displayName: 'test:all'
