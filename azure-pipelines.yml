@@ -13,18 +13,26 @@ steps:
 - task: NodeTool@0
   inputs:
     versionSpec: '10.x'
-  displayName: 'Install Node.js'
-
-- script: |
-    npm install
-    npm run lint
-    npm run build
-  displayName: 'npm install and build'
-
-- task: test@0
+  
+- task: Npm@1
+  displayName: 'npm install'
   inputs:
-    versionSpec: '10.x'
-  - script: |
-    npm install
-    npm run test:all
-  displayName: 'test ant-design-pro'
+    command: install
+
+- task: Npm@1
+  displayName: 'lint'
+  inputs:
+    command: custom
+     customCommand: 'run lint'
+
+- task: Npm@1
+  displayName: 'build'
+  inputs:
+    command: custom
+     customCommand: 'run build'
+
+- task: Npm@1
+  displayName: 'test:all'
+  inputs:
+    command: custom
+    customCommand: 'run test:all'
