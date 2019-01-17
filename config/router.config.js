@@ -43,7 +43,6 @@ export default [
       },
       // forms
       {
-        path: '/form',
         icon: 'form',
         name: 'form',
         routes: [
